@@ -95,8 +95,3 @@ variable "consul_agent_token" {
   description = "The Consul Agent and Default token"
   default = "root"
 }
-
-# variable "consul_retry_join" {
-#   description = "How consul clients connect to "
-#   default = locals.retry_join
-# }

@@ -59,7 +59,6 @@ resource "aws_launch_template" "lt" {
     consul_binary         = var.consul_binary,
     consul_namespace      = var.consul_namespace,
     consul_agent_token    = var.consul_agent_token,
-    consul_retry_join     = local.retry_join,
     instance_count        = var.instance_count,
     upstream_uris         = var.upstream_uris,
     app_port              = var.app_port,
