@@ -44,6 +44,13 @@ Restart=always
 WantedBy=multi-user.target
 EOT
 
+NAMESPACE=""
+case ${consul_binary} in
+  consul-enterprise)
+    $$NAMESPACE="namespace = ${consul_namespace}"
+    ;;
+esac
+  
 
 cat <<EOT > /etc/consul.d/${name}.hcl
 service {
@@ -65,9 +72,12 @@ service {
     }
   ]
   token = "${consul_token}"
-  namespace = "${consul_namespace}"
+  $${NAMESPACE}
 }
 EOT
+
+
+
 
 systemctl daemon-reload
 systemctl enable ${name} --now
@@ -139,4 +149,6 @@ DNSSEC=false
 Domains=~consul
 EOT
 
+systemctl daemon-reload
 systemctl restart systemd-resolved
+systemctl enable consul --now
