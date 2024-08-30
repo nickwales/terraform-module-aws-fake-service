@@ -11,12 +11,12 @@ variable "service_tags" {
 }
 variable "fake_service_name" {
   description = "The name fake service will display"
-  default = ""
+  default = "fake-service"
 }
 
 variable "fake_service_message" {
   description = "The message fake service will display"
-  default = ""
+  default = "fake-service"
 }
 
 variable "upstream_uris" {
