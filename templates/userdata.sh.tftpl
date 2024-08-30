@@ -54,7 +54,7 @@ esac
 
 cat <<EOT > /etc/consul.d/${name}.hcl
 service {
-  name = "${name}"
+  name = "${fake_service_name}"
   port = ${app_port}
   tags = ${service_tags}
   meta = {
