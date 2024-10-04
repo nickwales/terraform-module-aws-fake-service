@@ -45,7 +45,7 @@ resource "aws_launch_template" "lt" {
   update_default_version = true
 
   user_data = base64encode(templatefile("${path.module}/templates/userdata.sh.tftpl", { 
-    fake_service_name     = var.name,
+    fake_service_name     = var.fake_service_name,
     fake_service_message  = local.message,    
     name                  = var.name,
     service_tags          = jsonencode(var.service_tags),

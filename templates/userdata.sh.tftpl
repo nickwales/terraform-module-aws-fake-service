@@ -26,9 +26,9 @@ echo "CONSUL_HTTP_TOKEN=${consul_token}" >> /etc/environment
 echo "CONSUL_HTTP_ADDR=https://127.0.0.1:8501" >> /etc/environment
 echo "CONSUL_HTTP_SSL_VERIFY=false" >> /etc/environment
 
-cat <<EOT > "/etc/systemd/system/${name}.service"
+cat <<EOT > "/etc/systemd/system/${fake_service_name}.service"
 [Unit]
-Description=${name}
+Description=${fake_service_name}
 After=syslog.target network.target
 
 [Service]
@@ -52,7 +52,7 @@ case ${consul_binary} in
 esac
   
 
-cat <<EOT > /etc/consul.d/${name}.hcl
+cat <<EOT > /etc/consul.d/${fake_service_name}.hcl
 service {
   name = "${fake_service_name}"
   port = ${app_port}
@@ -60,7 +60,7 @@ service {
   meta = {
     product = "${name}"
     version = "4.8.1"
-    owner   = "${name}-team@acme.com"
+    owner   = "${fake_service_name}-team@acme.com"
   } 
 
   checks = [

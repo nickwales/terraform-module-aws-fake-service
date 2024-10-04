@@ -9,6 +9,7 @@ variable "service_tags" {
   type    = list(string)
   default = [""]
 }
+
 variable "fake_service_name" {
   description = "The name fake service will display"
   default = "fake-service"
