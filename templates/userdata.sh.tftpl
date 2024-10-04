@@ -80,7 +80,7 @@ EOT
 
 
 systemctl daemon-reload
-systemctl enable ${name} --now
+systemctl enable ${fake_service_name} --now
 
 # Configure Consul and start it up
 echo CONSUL_LICENSE=${consul_license} >> /etc/consul.d/consul.env
