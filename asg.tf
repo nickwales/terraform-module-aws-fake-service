@@ -1,7 +1,7 @@
 resource "aws_autoscaling_group" "asg" {
   name_prefix               = "fake-service-${var.name}-${var.consul_datacenter}"
-  max_size                  = 3
-  min_size                  = 1
+  max_size                  = 10
+  min_size                  = 0
   health_check_grace_period = 300
   health_check_type         = "ELB"
   desired_capacity          = "${var.instance_count}"
